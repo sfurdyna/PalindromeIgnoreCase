@@ -1,0 +1,54 @@
+//This is in java, need to fix so that it ignores all special characters and case.
+//Right now, it reads all inputs as a Palindrome and I can't figure out what to change so that it actually takes
+//the palindrome and reads it correctly, only ignorning special characters and spaces
+
+import java.util.Scanner;
+
+public class Palindrome2
+{
+	public static void main(String[] args)
+	{
+		String str, another = "y";
+		int left, right;
+		
+		Scanner scan = new Scanner(System.in);
+		
+		while (another.equalsIgnoreCase("y"))
+		{
+			System.out.println("Enter a potential alindrome:");
+            str = scan.nextLine();
+            str = str.toLowerCase();
+			
+			left = 0;
+			right = str.length()-1;
+			
+            while (str.charAt(left) == str.charAt(right) && left < right )
+            {
+                left++;
+                right--;
+            }
+            if (str.charAt(left) >= 32 && str.charAt(left) <= 47 
+            && str.charAt(left) >= 58 && str.charAt(left) <= 64
+            && str.charAt(left) >= 91 && str.charAt(left) >= 97); {
+                left = str.length()+1;
+            }
+            if (str.charAt(right) >= 32 && str.charAt(right) <= 47 
+            && str.charAt(right) >= 58 && str.charAt(right) <= 64
+            && str.charAt(right) >= 91 && str.charAt(right) >= 97); {
+                right = str.length()-1;
+            }
+
+
+
+			System.out.println();
+			if (left < right)
+				System.out.println("That string is NOT a palindrome.");
+			else
+				System.out.println("That string IS a palindrome.");
+		
+			System.out.println();
+			System.out.print("Test another palindrome (y/n)? ");
+			another = scan.nextLine();
+		}
+	}
+}
